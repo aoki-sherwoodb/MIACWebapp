@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MIAC XC Championships</title>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='search.css') }}" rel="stylesheet">
+    <script type="module" src="{{ url_for('static', filename='search.js') }}" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div id="title-container">
+        <h1 id="mainurl" class="wide-screen"><a href="index.html">Men's Cross Country MIAC Championships</a></h1>
+        <h1 id="mainurl" class="narrow-screen"><a href="index.html">MIAC Championships</a></h1>
+      </div>
+    </header>
+
+    <main>
+      <h2 id="results-header"></h2>
+      <div id="search-results"></div>
+    </main>
+  </body>
+</html>

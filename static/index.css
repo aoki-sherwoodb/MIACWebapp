@@ -1,0 +1,286 @@
+/*
+    style.css
+    3 November 2020
+    CSS for index.html (MIAC Championships website)
+
+    Uses the noUiSlider library: https://refreshless.com/nouislider/
+    Copyright © 2020 Leon Gersen
+    Open source under the MIT license.
+
+    Uses the Plotly library: https://plotly.com/javascript/
+    Copyright © 2020 Plotly
+    Open source under the MIT license.
+*/
+:root {
+  --main-darkblue: #00688B;
+  --main-whitegreen: #EDF5E1;
+  --main-green: #5CDB95;
+  --main-darkgreen: #379683;
+  --main-lightgray: #F0F0F0;
+  min-width: 850px;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  min-width: 850px;
+  height: 90px;
+  color: var(--main-whitegreen);
+  background-color: var(--main-darkgreen);
+  font-family: Rubik;
+  z-index: 2;
+}
+
+#title-container {
+  float: left;
+  padding-left: 1vw;
+  width: 50vw;
+  min-width: 325px;
+}
+
+.narrow-screen {
+  display: none;
+}
+
+nav {
+  float: right;
+  display: flex;
+  width: 45vw;
+  min-width: 575px;
+}
+
+@media (max-width: 1225px) {
+  .narrow-screen {
+    display: flex;
+  }
+  .wide-screen {
+    display: none;
+  }
+
+  #title-container {
+    width: 45vw;
+  }
+
+  nav {
+    width: 61vw;
+  }
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin-right: 3rem;
+  flex: 1 0 0%;
+  justify-content: space-between;
+  padding-top: 17px;
+}
+
+nav a {
+  display: block;
+  color: var(--main-whitegreen);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.hover:hover{
+  text-decoration: underline;
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#search {
+  width: auto;
+  display: block;
+  margin: 100px auto 0 auto;
+  padding: 100px 20px;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url('https://themacweekly.com/wp-content/uploads/2019/11/Sports-unedited-Men_s-XC-MIAC-pic-4-by-Matt-Glover.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--main-whitegreen);
+  background-color: var(--main-lightgray);
+}
+
+input {
+  font-family: 'Roboto', sans-serif;
+  color: var(--main-darkblue);
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+#search-line {
+  max-width: 600px;
+  height: 30px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#champ-search {
+  flex: 2.5;
+  width: 400px;
+  margin-right: 0;
+}
+
+#search-field-select {
+  flex: .4;
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  color: var(--main-darkblue);
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1px;
+}
+
+#input-search {
+  display: inline-block;
+  height: 20.1px;
+  flex: .4;
+  background-color: white;
+  border-style: none;
+  color: var(--main-darkblue);
+  margin-left: 1px;
+  padding: 1px;
+}
+
+#data-selection {
+  margin: auto;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-darkblue);
+  color: var(--main-whitegreen);
+  font-size: 20px;
+}
+
+#data-selection-content {
+  background-color: var(--main-whitegreen);
+  color: var(--main-darkblue);
+  padding: 15px;
+  border-style: none solid none solid;
+  border-color: var(--main-darkblue);
+  border-width: 1px;
+}
+
+#intro-text {
+  padding-bottom: 10px;
+  float: top;
+}
+
+#data-selectors {
+  display: flex;
+}
+
+#teams-content{
+  flex: .5;
+}
+
+#team-checkboxes{
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+#slider-content-container{
+    flex: 1.4;
+}
+
+#year-slider {
+  margin: 20px;
+  margin-bottom: 40px;
+  max-width: 600px;
+  min-width: 450px;
+}
+
+#year-slider .noUi-connect {
+  background: var(--main-darkblue);
+}
+
+#analysis-container {
+  background-color: var(--main-whitegreen);
+  color: var(--main-darkblue);
+  padding: 4px 4px 2px 4px;
+  border-style: solid;
+  border-color: var(--main-darkblue);
+  border-width: 1px;
+}
+
+/* the button that is used to open and close the collapsible content */
+.collapsible {
+  width: 100%;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-darkblue);
+  color: var(--main-whitegreen);
+  cursor: pointer;
+  text-align: left;
+  font-size: 20px;
+  outline: none;
+  border-style: none none solid none;
+  border-color: var(--main-whitegreen);
+  border-width: 2px;
+}
+
+.active, .collapsible:hover {
+  background-color: #0083b0;
+}
+
+.content {
+  padding: 15px 15px;
+  display: none;
+  overflow: hidden;
+  background-color: var(--main-whitegreen);
+  color: var(--main-darkblue);
+}
+
+#teams-performances-chart, #athlete-dev-chart, .year-boxplot{
+  margin: 50px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--main-darkblue);
+}
+/*styling for drop-down menus in collapsibles*/
+#athlete-dev-metric, #athlete-dev-data-format, #team-performances-metric, #team-spread-athlete-limit {
+  font-family: 'Roboto', sans-serif;
+  color: var(--main-darkblue);
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 10px;
+  background-color: var(--main-darkgreen);
+  color: var(--main-whitegreen)
+}
+
+footer p {
+  padding: .5vh 1vw;
+}
+
+footer a {
+  color: var(--main-whitegreen);
+  text-decoration: none;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MIAC XC Championships</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='nouislider.min.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div id="title-container">
+      <h1 class="wide-screen">Men's Cross Country MIAC Championships</h1>
+      <h1 class="narrow-screen">MIAC Championships</h1>
+    </div>
+    <div id="nav-container">
+      <nav id="navbar">
+        <ul>
+          <li><a class="hover" href="#search-anchor">Search</a></li>
+          <li><a class="hover" href="#team-performance-anchor">Team Performance</a></li>
+          <li><a class="hover" href="#team-spread-anchor">Team Spread</a></li>
+          <li><a class="hover" href="#athlete-dev-anchor">Athlete Development</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="anchor" id="search-anchor"></div>
+    <div id="search">
+      <h3>Search men's MIAC Cross Country Championship results from 2009-2019 by athlete, team, or year.</h3>
+      <div id="search-line">
+        <select id="search-field-select">
+          <option value='athletes'>Athletes</option>
+          <option value='teams'>Teams</option>
+          <option value='year'>Year</option>
+        </select>
+        <input id="champ-search" type="text"/>
+        <button id="input-search">Search</button>
+      </div>
+    </div>
+    <p id="data-selection">Data Analysis</p>
+    <div id='data-selection-content'>
+      <div id="intro-text">
+        <p>Select all desired teams and years for the graphing analyses below. To view a section of the analysis, click a collapsible below.</p>
+      </div>
+      <div id="data-selectors">
+        <div id='teams-content'>
+          <h3>Select Team(s)</h3>
+          <div id="team-checkboxes">
+            <input type="checkbox" name="all" id="select-all" checked>
+            <label for="all"><span class="bold">Select/Unselect All</span></label><br>
+            <input type="checkbox" name="augsburg" value="0" checked>
+            <label for="augsburg">Augsburg University</label><br>
+            <input type="checkbox" name="bethel" value="1" checked>
+            <label for="bethel">Bethel University</label><br>
+            <input type="checkbox" name="carleton" value="2" checked>
+            <label for="carleton">Carleton College</label><br>
+            <input type="checkbox" name="concordia" value="3" checked>
+            <label for="concordia">Concordia College</label><br>
+            <input type="checkbox" name="gustavus" value="4"  checked>
+            <label for="gustavus">Gustavus Adolphus College</label><br>
+            <input type="checkbox" name="hamline" value="5"  checked>
+            <label for="hamline">Hamline University</label><br>
+            <input type="checkbox" name="macalester" value="6" checked>
+            <label for="macalester">Macalester College</label><br>
+            <input type="checkbox" name="john" value="7" checked>
+            <label for="john">St. John's University</label><br>
+            <input type="checkbox" name="mary" value="8" checked>
+            <label for="mary">St. Mary's University</label><br>
+            <input type="checkbox" name="olaf" value="9"  checked>
+            <label for="olaf">St. Olaf College</label><br>
+            <input type="checkbox" name="thomas" value="10"  checked>
+            <label for="thomas">University of St. Thomas</label><br>
+          </div>
+        </div>
+        <div id="slider-content-container">
+          <h3>Select Year(s)</h3>
+          <div id="year-slider"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="analysis-container">
+      <div class="anchor" id="team-performance-anchor"></div>
+      <button type="button" class="collapsible" id="team-performance">Team Performances</button>
+      <div class="content">
+        <p>Creates a line graph showing the places or points of the selected teams at the MIAC championship meet for the selected years.</p>
+        <select id="team-performances-metric">
+          <option value="place">Place</option>
+          <option value="points">Points</option>
+        </select>
+        <button id="input-team-performances">Submit</button>
+        <div id="teams-performances-chart"></div>
+        <div id="teams-performances-content-div"></div>
+      </div>
+
+      <div class="anchor" id="team-spread-anchor"></div>
+      <button type="button" class="collapsible" id="team-spread">Team Spread</button>
+      <div class="content">
+        <p>Creates a boxplot for each year in the selected year range showing the distribution of times for the selected teams.
+          Use the drop-down menu to choose between the times for the top 7 runners on each team or the times for entire teams.</p>
+          <select id="team-spread-athlete-limit">
+            <option value="top7">Top 7</option>
+            <option value="team">Whole Team</option>
+          </select>
+          <button id="input-team-spread">Submit</button>
+          <div id="team-spread-charts"></div>
+        </div>
+
+        <div class="anchor" id="athlete-dev-anchor"></div>
+        <button type="button" class="collapsible" id="athlete-dev">Athlete Development</button>
+        <div class="content">
+          <p>Creates a bar chart showing the average yearly change in athlete time or place over the selected range of years.
+            The yearly development for each athlete can be calculated as either a raw change or a year-over-year percent change.
+            The average of these yearly changes can be calculated as either a mean or a median.
+            Note that at least two years must be selected to produce a chart, as this analysis involves change over time.</p>
+            <select id="athlete-dev-metric">
+              <option value="time">Time</option>
+              <option value="place">Place</option>
+            </select>
+            <select id="athlete-dev-data-format">
+              <option value="unweighted,mean">Mean Unweighted Change</option>
+              <option value="unweighted,median">Median Unweighted Change</option>
+              <option value="percent,mean">Mean Percent Change</option>
+              <option value="percent,median">Median Percent Change</option>
+            </select>
+            <button id="input-athlete-dev">Submit</button>
+            <div id="athlete-dev-chart"></div>
+          </div>
+
+        </main>
+
+        <footer>
+          <p>Data collected from the <a class="hover" target="_blank" href="https://www.miacathletics.com/sports/mxc/archives">MIAC archives</a>.</p>
+          <p>Website maintained by <a class="hover" target="_blank" href="https://github.com/aoki-sherwoodb">Ben Aoki-Sherwood</a> and <a class="hover" target="_blank" href="https://github.com/Ave-Wat">Avery Watts</a></p>
+        </footer>
+        <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}" defer></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='nouislider.min.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='plotly.js') }}"></script>
+      </body>
+      </html>
